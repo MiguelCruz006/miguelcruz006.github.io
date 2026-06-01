@@ -55,31 +55,11 @@
             justify-content: space-between;
         }
 
-        .logo {
-            font-family: var(--serif);
-            font-weight: 900;
-            font-size: 18px;
-            color: white;
-            text-decoration: none;
-        }
+        .logo { font-family: var(--serif); font-weight: 900; font-size: 18px; color: white; text-decoration: none; }
         .logo span { color: var(--gold2); }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #7a7060;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+        .nav-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7a7060; text-decoration: none; transition: color 0.2s; }
         .nav-links a:hover { color: #ccc; }
         .nav-links a.active { color: var(--gold2); }
         .nav-cta { background: var(--gold) !important; color: white !important; padding: 6px 16px !important; border-radius: 4px; }
@@ -95,8 +75,7 @@
         .hero::after {
             content: 'MIGUEL';
             position: absolute;
-            right: -30px;
-            top: 50%;
+            right: -30px; top: 50%;
             transform: translateY(-50%);
             font-family: var(--serif);
             font-weight: 900;
@@ -129,50 +108,75 @@
         }
         .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold2); }
 
-        h1 {
-            font-family: var(--serif);
-            font-weight: 900;
-            font-size: clamp(3rem, 6vw, 5rem);
-            color: white;
-            line-height: 1.05;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-        }
+        h1 { font-family: var(--serif); font-weight: 900; font-size: clamp(3rem, 6vw, 5rem); color: white; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
         h1 em { font-style: italic; color: var(--gold2); }
 
-        .hero-desc {
-            font-size: 17px;
-            color: #7a7060;
-            font-weight: 300;
-            max-width: 520px;
-            line-height: 1.8;
-        }
+        .hero-desc { font-size: 17px; color: #7a7060; font-weight: 300; max-width: 520px; line-height: 1.8; }
 
-        .hero-photo-wrap {
-            flex-shrink: 0;
-            position: relative;
-        }
+        /* PHOTO */
+        .hero-photo-wrap { flex-shrink: 0; position: relative; }
 
-        .hero-photo {
+        .photo-zone {
             width: 160px; height: 160px;
             border-radius: 8px;
-            object-fit: cover;
             border: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
             display: block;
         }
 
-        .hero-photo-placeholder {
-            width: 160px; height: 160px;
-            border-radius: 8px;
+        .photo-zone input[type="file"] {
+            position: absolute; inset: 0;
+            opacity: 0; cursor: pointer;
+            width: 100%; height: 100%; z-index: 3;
+        }
+
+        .photo-placeholder {
+            width: 100%; height: 100%;
             background: #1a1714;
-            border: 3px solid var(--gold);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 6px;
+        }
+
+        .photo-initials {
             font-family: var(--serif);
             font-weight: 900;
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--gold2);
+            line-height: 1;
+        }
+
+        .photo-hint {
+            font-family: var(--mono);
+            font-size: 8px;
+            color: rgba(212,160,23,0.4);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .photo-img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .photo-saved {
+            display: none;
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(184,134,11,0.92);
+            color: white;
+            font-family: var(--mono);
+            font-size: 8px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px;
+            text-align: center;
+            z-index: 2;
         }
 
         .hero-badge-photo {
@@ -189,314 +193,121 @@
         }
 
         /* CONTENT */
-        .content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 5rem 2.5rem 6rem;
-        }
+        .content { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem 6rem; }
 
-        .section-label {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 2.5rem;
-        }
+        .section-label { display: flex; align-items: center; gap: 14px; margin-bottom: 2.5rem; }
         .section-label-line { flex: 1; height: 1px; background: var(--border); }
-        .section-label-text {
-            font-family: var(--mono);
-            font-size: 9px;
-            color: var(--muted);
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
+        .section-label-text { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.25em; text-transform: uppercase; white-space: nowrap; }
 
-        /* MAIN GRID */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3.5rem;
-            align-items: start;
-        }
+        /* GRID */
+        .main-grid { display: grid; grid-template-columns: 300px 1fr; gap: 3.5rem; align-items: start; }
 
         /* ASIDE */
-        .aside-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            overflow: hidden;
-            margin-bottom: 1.25rem;
-        }
-
-        .aside-header {
-            background: var(--paper);
-            border-bottom: 1px solid var(--border);
-            padding: 10px 16px;
-            font-family: var(--mono);
-            font-size: 9px;
-            color: var(--muted);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
+        .aside-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 1.25rem; }
+        .aside-header { background: var(--paper); border-bottom: 1px solid var(--border); padding: 10px 16px; font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; }
         .aside-body { padding: 1.25rem 1.5rem; }
 
-        /* INFO ROWS */
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--paper);
-            font-size: 13px;
-        }
+        .info-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--paper); font-size: 13px; }
         .info-row:last-child { border-bottom: none; }
         .info-label { color: var(--muted); font-size: 12px; }
         .info-val { color: var(--ink); font-weight: 500; text-align: right; font-size: 12px; }
 
-        /* LANG BARS */
         .lang-row { margin-bottom: 14px; }
         .lang-row:last-child { margin-bottom: 0; }
-        .lang-top {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            font-size: 12px;
-        }
+        .lang-top { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 12px; }
         .lang-name-txt { color: var(--ink2); }
         .lang-pct { font-family: var(--mono); font-size: 10px; color: var(--muted); }
-        .lang-bar {
-            height: 3px;
-            background: var(--paper);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        .lang-fill {
-            height: 3px;
-            border-radius: 2px;
-            background: var(--gold);
-        }
+        .lang-bar { height: 3px; background: var(--paper); border-radius: 2px; overflow: hidden; }
+        .lang-fill { height: 3px; border-radius: 2px; background: var(--gold); }
 
-        /* VOYAGE */
-        .voyage-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--paper);
-        }
+        .voyage-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--paper); }
         .voyage-item:last-child { border-bottom: none; }
-        .voyage-icon {
-            width: 32px; height: 32px;
-            background: var(--ink);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold2);
-            font-size: 12px;
-            flex-shrink: 0;
-        }
+        .voyage-icon { width: 32px; height: 32px; background: var(--ink); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: var(--gold2); font-size: 12px; flex-shrink: 0; }
         .voyage-title { font-size: 13px; font-weight: 500; color: var(--ink); }
         .voyage-desc { font-size: 11px; color: var(--muted); }
+        .voyage-badge { display: inline-block; font-family: var(--mono); font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 3px; margin-top: 3px; }
+        .vb-done { background: rgba(37,99,168,0.1); color: var(--sky); border: 1px solid rgba(37,99,168,0.2); }
+        .vb-soon { background: rgba(184,134,11,0.1); color: var(--gold); border: 1px solid rgba(184,134,11,0.2); }
 
-        /* INTERESTS */
-        .interest-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-        }
-        .interest-item {
-            background: var(--paper);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            padding: 8px 10px;
-            font-size: 11px;
-            color: var(--ink2);
-            display: flex;
-            align-items: center;
-            gap: 7px;
-        }
+        .interest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        .interest-item { background: var(--paper); border: 1px solid var(--border); border-radius: 4px; padding: 8px 10px; font-size: 11px; color: var(--ink2); display: flex; align-items: center; gap: 7px; }
         .interest-item i { color: var(--gold); font-size: 10px; }
 
-        /* MAIN CONTENT */
-        .prose-block {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 2rem 2.25rem;
-            margin-bottom: 1.5rem;
-        }
-
+        /* PROSE */
+        .prose-block { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 2rem 2.25rem; margin-bottom: 1.5rem; }
         .prose-block.accent-sky { border-left: 3px solid var(--sky); }
         .prose-block.accent-gold { border-left: 3px solid var(--gold); }
+        .prose-block.accent-green { border-left: 3px solid #0d7a4e; }
 
-        .block-title {
-            font-family: var(--serif);
-            font-weight: 700;
-            font-size: 1.4rem;
-            color: var(--ink);
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
+        .block-title { font-family: var(--serif); font-weight: 700; font-size: 1.4rem; color: var(--ink); margin-bottom: 1rem; letter-spacing: -0.01em; }
 
-        .prose-text {
-            font-size: 15px;
-            color: var(--ink2);
-            line-height: 1.8;
-        }
-
+        .prose-text { font-size: 15px; color: var(--ink2); line-height: 1.8; }
         .prose-text strong { color: var(--ink); font-weight: 600; }
-
         .prose-text p + p { margin-top: 1rem; }
 
-        /* SKILLS GRID */
-        .skills-section {
-            margin-top: 1.5rem;
-        }
+        .skills-section { margin-top: 1.5rem; }
+        .skills-title { font-family: var(--mono); font-size: 9px; color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 12px; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 6px; }
+        .skill-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 3px; background: var(--paper); border: 1px solid var(--border); color: var(--ink2); }
+        .skill-tag.highlight { background: var(--ink); color: var(--gold2); border-color: var(--ink); }
+        .skill-tag.hl-sky { background: rgba(37,99,168,0.08); color: var(--sky); border-color: rgba(37,99,168,0.25); }
 
-        .skills-title {
-            font-family: var(--mono);
-            font-size: 9px;
-            color: var(--muted);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .skill-tag {
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 3px;
-            background: var(--paper);
-            border: 1px solid var(--border);
-            color: var(--ink2);
-        }
-
-        .skill-tag.highlight {
+        /* STAGE CARD */
+        .stage-card {
             background: var(--ink);
-            color: var(--gold2);
-            border-color: var(--ink);
+            border-radius: 6px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.25rem;
+            align-items: start;
         }
+        .stage-icon {
+            width: 44px; height: 44px;
+            background: rgba(212,160,23,0.12);
+            border: 1px solid rgba(212,160,23,0.25);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold2); font-size: 16px; flex-shrink: 0;
+        }
+        .stage-label { font-family: var(--mono); font-size: 9px; color: var(--gold2); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 3px; }
+        .stage-title { font-family: var(--serif); font-weight: 700; font-size: 1.1rem; color: white; margin-bottom: 5px; }
+        .stage-desc { font-size: 13px; color: #7a7060; line-height: 1.7; }
+        .stage-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+        .stage-tag { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; background: rgba(212,160,23,0.1); color: var(--gold2); border: 1px solid rgba(212,160,23,0.18); }
 
         /* OBJECTIF */
         .objectif-block {
-            background: var(--ink);
+            background: var(--sky);
             border-radius: 6px;
             padding: 2rem 2.25rem;
             margin-bottom: 1.5rem;
             position: relative;
             overflow: hidden;
         }
-
         .objectif-block::before {
-            content: '"';
+            content: '🎯';
             position: absolute;
-            top: -10px; left: 16px;
-            font-family: var(--serif);
-            font-size: 8rem;
-            color: rgba(212,160,23,0.08);
+            right: 20px; top: 50%;
+            transform: translateY(-50%);
+            font-size: 6rem;
+            opacity: 0.07;
             line-height: 1;
         }
-
-        .objectif-title {
-            font-family: var(--mono);
-            font-size: 9px;
-            color: var(--gold2);
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .objectif-text {
-            font-family: var(--serif);
-            font-size: 1.15rem;
-            color: #e8e4dc;
-            line-height: 1.75;
-            font-style: italic;
-        }
-
-        .objectif-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 1.25rem;
-        }
-
-        .obj-tag {
-            font-family: var(--mono);
-            font-size: 9px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 3px;
-            background: rgba(212,160,23,0.12);
-            color: var(--gold2);
-            border: 1px solid rgba(212,160,23,0.2);
-        }
+        .objectif-title { font-family: var(--mono); font-size: 9px; color: rgba(255,255,255,0.6); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 1rem; }
+        .objectif-text { font-family: var(--serif); font-size: 1.1rem; color: white; line-height: 1.75; font-style: italic; }
+        .objectif-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1.25rem; }
+        .obj-tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.2); }
 
         /* CTA */
-        .cta-row {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .cta-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--ink);
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            transition: background 0.2s;
-        }
+        .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.5rem; }
+        .cta-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: white; text-decoration: none; padding: 12px 24px; border-radius: 4px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.2s; }
         .cta-primary:hover { background: var(--gold); }
-
-        .cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            color: var(--ink);
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            font-family: var(--mono);
-            font-size: 10px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            transition: border-color 0.2s, color 0.2s;
-        }
+        .cta-secondary { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); text-decoration: none; padding: 12px 24px; border-radius: 4px; border: 1px solid var(--border); font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; transition: border-color 0.2s, color 0.2s; }
         .cta-secondary:hover { border-color: var(--gold); color: var(--gold); }
 
-        /* FOOTER */
-        footer {
-            background: var(--ink);
-            color: #3d3830;
-            padding: 2rem 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 2px solid var(--gold);
-        }
+        footer { background: var(--ink); color: #3d3830; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; border-top: 2px solid var(--gold); }
         .footer-txt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; }
         .footer-logo { font-family: var(--serif); font-size: 20px; color: #3d3830; font-weight: 900; }
         .footer-logo span { color: var(--gold2); }
@@ -509,6 +320,7 @@
             h1 { font-size: 2.8rem; }
             .hero::after { display: none; }
             footer { flex-direction: column; gap: 1rem; text-align: center; }
+            .stage-card { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -522,7 +334,7 @@
             <li><a href="apropos.html" class="active">À propos</a></li>
             <li><a href="projets.html">Projets</a></li>
             <li><a href="parcours.html">Parcours</a></li>
-            <li><a href="cv.html" class="nav-cta">CV</a></li>
+            <li><a href="Curiculum_vitae.html">CV</a></li>
         </ul>
     </nav>
 </header>
@@ -530,12 +342,21 @@
 <section class="hero">
     <div class="hero-inner">
         <div>
-            <div class="hero-eyebrow">BTS SIO SISR — Profil technique</div>
+            <div class="hero-eyebrow">BTS SIO SISR — Futur ingénieur cybersécurité</div>
             <h1>À propos<br>de <em>moi</em></h1>
-            <p class="hero-desc">Étudiant en systèmes &amp; réseaux, passionné de cybersécurité, polyglotte et curieux. Un profil qui mêle rigueur technique et sens du service.</p>
+            <p class="hero-desc">Étudiant en systèmes &amp; réseaux au CNED, passionné de cybersécurité, polyglotte. Mon objectif : devenir ingénieur en cybersécurité.</p>
         </div>
         <div class="hero-photo-wrap">
-            <div class="hero-photo-placeholder">ME</div>
+            <!-- PHOTO DE PROFIL — cliquer pour ajouter, sauvegardée automatiquement -->
+            <div class="photo-zone" id="photoZone" onclick="document.getElementById('photoInput').click()">
+                <input type="file" id="photoInput" accept="image/*" onchange="handlePhoto(this)" style="display:none">
+                <div class="photo-placeholder" id="photoPh">
+                    <span class="photo-initials">ME</span>
+                    <span class="photo-hint">Ajouter photo</span>
+                </div>
+                <img class="photo-img" id="photoImg" alt="Miguel Etienne">
+                <div class="photo-saved" id="photoBadge">Photo sauvegardée ✓</div>
+            </div>
             <div class="hero-badge-photo">Miguel Etienne</div>
         </div>
     </div>
@@ -561,6 +382,7 @@
                     <div class="info-row"><span class="info-label">Année</span><span class="info-val">2e année</span></div>
                     <div class="info-row"><span class="info-label">Localisation</span><span class="info-val">Châlette-sur-Loing</span></div>
                     <div class="info-row"><span class="info-label">Diplôme précédent</span><span class="info-val">Bac STMG G&F</span></div>
+                    <div class="info-row"><span class="info-label">Stage</span><span class="info-val">Paradigm · Versailles</span></div>
                 </div>
             </div>
 
@@ -587,20 +409,59 @@
             </div>
 
             <div class="aside-card">
-                <div class="aside-header">Expériences à l'étranger</div>
+                <div class="aside-header">Séjours linguistiques</div>
                 <div class="aside-body">
                     <div class="voyage-item">
-                        <div class="voyage-icon"><i class="fas fa-plane"></i></div>
+                        <div class="voyage-icon"><i class="fas fa-check"></i></div>
                         <div>
-                            <div class="voyage-title">Malte — 1 mois</div>
-                            <div class="voyage-desc">Immersion linguistique anglais</div>
+                            <div class="voyage-title">Italie — 1 mois</div>
+                            <div class="voyage-desc">Immersion linguistique italien</div>
+                            <span class="voyage-badge vb-done">Réalisé</span>
                         </div>
                     </div>
                     <div class="voyage-item">
                         <div class="voyage-icon"><i class="fas fa-plane"></i></div>
                         <div>
-                            <div class="voyage-title">Italie — 1 mois</div>
-                            <div class="voyage-desc">Immersion linguistique italien</div>
+                            <div class="voyage-title">Malte — Anglais</div>
+                            <div class="voyage-desc">Immersion linguistique anglais</div>
+                            <span class="voyage-badge vb-soon">À venir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aside-card">
+                <div class="aside-header">Plateformes cybersécurité</div>
+                <div class="aside-body">
+                    <div class="voyage-item">
+                        <div class="voyage-icon"><i class="fas fa-flag"></i></div>
+                        <div>
+                            <div class="voyage-title">TryHackMe</div>
+                            <div class="voyage-desc">SOC Level 1 — en cours</div>
+                        </div>
+                    </div>
+                    <div class="voyage-item">
+                        <div class="voyage-icon"><i class="fas fa-terminal"></i></div>
+                        <div>
+                            <div class="voyage-title">Hack The Box</div>
+                            <div class="voyage-desc">Pentesting & challenges</div>
+                        </div>
+                    </div>
+                    <div class="voyage-item">
+                        <div class="voyage-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div>
+                            <div class="voyage-title">Root-Me</div>
+                            <div class="voyage-desc">Challenges sécurité offensiive</div>
+                        </div>
+                    </div>
+                        <div class="voyage-item">
+                            <div class="voyage-icon"><i class="fas fa-certificate"></i></div>
+                            <div>
+                                <div class="voyage-title">EHC</div>
+                                <div class="voyage-desc">Certification Ethical Hacker Certified</div>
+                                <div class="voyage-desc">préparation en cours</div>
+                        </div>
+                   
                         </div>
                     </div>
                 </div>
@@ -610,11 +471,11 @@
                 <div class="aside-header">Centres d'intérêt</div>
                 <div class="aside-body">
                     <div class="interest-grid">
-                        <div class="interest-item"><i class="fas fa-shield-alt"></i> Technologies de l'information</div>
-                        <div class="interest-item"><i class="fas fa-star"></i> Les voyages</div>
-                        <div class="interest-item"><i class="fas fa-atom"></i> Football</div>
-                        <div class="interest-item"><i class="fas fa-book"></i> L'art (cinéma, musique, peinture, littérature)</div>
-                        <div class="interest-item"><i class="fas fa-horse"></i> Courses hippiques</div>
+                        <div class="interest-item"><i class="fas fa-shield-alt"></i> Cybersécurité</div>
+                        <div class="interest-item"><i class="fas fa-cloud"></i> Cloud Azure</div>
+                        <div class="interest-item"><i class="fas fa-globe"></i> Voyages</div>
+                        <div class="interest-item"><i class="fas fa-futbol"></i> Football</div>
+                        <div class="interest-item"><i class="fas fa-film"></i> Cinéma & musique</div>
                         <div class="interest-item"><i class="fas fa-globe-africa"></i> Cultures du monde</div>
                     </div>
                 </div>
@@ -625,67 +486,153 @@
         <!-- MAIN -->
         <div>
 
+            <!-- PROFIL TECHNIQUE -->
             <div class="prose-block accent-sky">
                 <div class="block-title">Mon profil technique</div>
                 <div class="prose-text">
-                    <p>Passionné par les technologies de l'information, je prépare mon <strong>BTS SIO SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux) en formation à distance via le CNED. Mon parcours allie curiosité intellectuelle et rigueur pratique.</p>
-                    <p>De la configuration d'équipements Cisco IOS à l'automatisation d'infrastructures Cloud via <strong>Azure et Terraform</strong>, j'explore aussi bien les réseaux physiques que les environnements virtualisés. La cybersécurité m'attire particulièrement — j'approfondis en autonomie les domaines SOC, analyse de logs Windows et protocoles d'authentification.</p>
+                    <p>Passionné par les infrastructures et la sécurité informatique, je prépare mon <strong>BTS SIO option SISR</strong> en formation à distance au CNED. Ma formation couvre les réseaux Cisco, l'administration Windows Server et Linux, la virtualisation, et le cloud Microsoft Azure.</p>
+                    <p>De la configuration d'équipements <strong>Cisco IOS</strong> (VLANs, HSRP, STP) à l'automatisation d'infrastructures cloud via <strong>Terraform sur Azure</strong>, j'ai développé une vision complète des environnements d'infrastructure modernes. En parallèle, je me forme activement en cybersécurité sur TryHackMe, Hack The Box et Root-Me et je prépare la certification EHC (Ethical Hacker Certified).</p>
                 </div>
 
                 <div class="skills-section">
                     <div class="skills-title">Compétences techniques</div>
                     <div class="skills-grid">
                         <span class="skill-tag highlight">Azure / Terraform</span>
-                        <span class="skill-tag highlight">Cisco IOS</span>
+                        <span class="skill-tag highlight">Cisco IOS / Packet Tracer</span>
                         <span class="skill-tag highlight">Active Directory</span>
-                        <span class="skill-tag">Linux / Apache</span>
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">VLAN / VTP / HSRP</span>
-                        <span class="skill-tag">Packet Tracer</span>
-                        <span class="skill-tag">DHCP / DNS</span>
-                        <span class="skill-tag">Cybersécurité SOC</span>
-                        <span class="skill-tag">RBAC / Entra ID</span>
-                        <span class="skill-tag">ARM / Bicep</span>
-                        <span class="skill-tag">Syslog / NTP</span>
+                        <span class="skill-tag highlight">Cybersécurité SOC</span>
+                        <span class="skill-tag hl-sky">Linux / Apache / Bash</span>
+                        <span class="skill-tag hl-sky">PowerShell</span>
+                        <span class="skill-tag">VLAN · VTP · HSRP · STP</span>
+                        <span class="skill-tag">DHCP · DNS · Syslog</span>
+                        <span class="skill-tag">GLPI · HaProxy</span>
+                        <span class="skill-tag">RBAC · Entra ID</span>
+                        <span class="skill-tag">SIEM · Splunk</span>
+                        <span class="skill-tag">Windows Server 2022</span>
                     </div>
                 </div>
             </div>
 
-            <div class="objectif-block">
-                <div class="objectif-title">Objectif professionnel</div>
-                <p class="objectif-text">À l'issue de mon BTS, mon ambition est d'intégrer une 3e année spécialisée en cybersécurité. Mon profil polyglotte et ma curiosité pour les systèmes sécurisés me poussent vers un rôle d'analyste SOC ou d'auditeur GRC.</p>
-                <div class="objectif-tags">
-                    <span class="obj-tag">SOC Analyst</span>
-                    <span class="obj-tag">Pentest</span>
-                    <span class="obj-tag">Azure Security</span>
-                    <span class="obj-tag">GRC / Audit</span>
-                    <span class="obj-tag">Networking</span>
+            <!-- STAGE -->
+            <div class="prose-block accent-gold">
+                <div class="block-title">Stage — Paradigm, Versailles</div>
+                <div class="stage-card">
+                    <div class="stage-icon"><i class="fas fa-cloud"></i></div>
+                    <div>
+                        <div class="stage-label">Janvier — Mars 2025 · Superviseur : Yasser Salimi</div>
+                        <div class="stage-title">Infrastructure Windows Azure IaC</div>
+                        <div class="stage-desc">Déploiement d'une infrastructure cloud complète sur Microsoft Azure via Terraform : 2 VMs Windows Server 2022, 1 poste client Windows 11, un réseau virtuel segmenté (VNet 10.0.0.0/16) et un NSG avec règles RDP et SSH. L'ensemble des 15 ressources Azure est défini en code HCL versionné sur Git et déployable en une seule commande <code style="font-family:var(--mono);font-size:11px;color:var(--gold2)">terraform apply</code>.</div>
+                        <div class="stage-tags">
+                            <span class="stage-tag">Microsoft Azure</span>
+                            <span class="stage-tag">Terraform HCL</span>
+                            <span class="stage-tag">Windows Server 2022</span>
+                            <span class="stage-tag">VNet · NSG</span>
+                            <span class="stage-tag">RDP · SSH</span>
+                            <span class="stage-tag">Azure CLI</span>
+                            <span class="stage-tag">ARM Templates</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="prose-block accent-gold">
-                <div class="block-title">Un profil atypique</div>
+            <!-- OBJECTIF -->
+            <div class="objectif-block">
+                <div class="objectif-title">Objectif professionnel</div>
+                <p class="objectif-text">À l'issue de mon BTS SIO SISR, mon objectif est d'intégrer une formation d'ingénieur en cybersécurité. Je vise un rôle d'<strong style="color:white">Ingénieur Cybersécurité</strong> — analyste SOC, pentest ou architecte sécurité — dans des environnements cloud et hybrides.</p>
+                <div class="objectif-tags">
+                    <span class="obj-tag">Ingénieur Cybersécurité</span>
+                    <span class="obj-tag">SOC Analyst</span>
+                    <span class="obj-tag">Pentesting</span>
+                    <span class="obj-tag">Azure Security</span>
+                    <span class="obj-tag">GRC / Audit</span>
+                    <span class="obj-tag">L3 Cybersécurité</span>
+                </div>
+            </div>
+
+            <!-- ATOUTS -->
+            <div class="prose-block accent-green">
+                <div class="block-title">Atouts &amp; valeurs ajoutées</div>
                 <div class="prose-text">
-                    <p>Mon parcours combine deux univers en apparence éloignés : l'IT et l'hôtellerie de luxe. Cette double expérience m'a appris la rigueur du service client, la gestion sous pression et l'importance de la discrétion — des qualités directement transférables en entreprise IT, notamment dans des contextes sensibles comme la cybersécurité ou l'administration de systèmes critiques.</p>
-                    <p>Quadrilingue (français, espagnol, anglais, italien), mes immersions à <strong>Malte</strong> et en <strong>Italie</strong> m'ont ouvert à d'autres cultures techniques et professionnelles.</p>
+                    <p><strong>Quadrilingue</strong> (français, espagnol, anglais, italien) — un atout concret pour lire des documentations techniques internationales, utiliser des outils en anglais et travailler dans des équipes multiculturelles. J'ai renforcé mon italien lors d'un séjour d'immersion d'un mois en Italie, et je prépare un séjour linguistique à <strong>Malte</strong> pour consolider mon anglais.</p>
+                    <p><strong>Formation en autonomie</strong> — deux ans de BTS en distanciel au CNED m'ont appris à m'organiser, à apprendre par moi-même et à être rigoureux dans la gestion des délais. Cette autonomie est directement transférable dans les métiers IT où la veille et l'auto-formation sont permanentes.</p>
                 </div>
             </div>
 
             <div class="cta-row">
                 <a href="projets.html" class="cta-primary"><i class="fas fa-folder"></i> Voir mes projets</a>
-                <a href="parcours.html" class="cta-secondary"><i class="fas fa-road"></i> Mon parcours complet</a>
-                <a href="cv.html" class="cta-secondary"><i class="fas fa-file-pdf"></i> Télécharger le CV</a>
+                <a href="parcours.html" class="cta-secondary"><i class="fas fa-road"></i> Mon parcours</a>
+                <a href="Curiculum_vitae.html" class="cta-secondary"><i class="fas fa-file-pdf"></i> Télécharger le CV</a>
             </div>
 
         </div>
     </div>
-
 </div>
 
 <footer>
     <span class="footer-txt">Miguel Etienne &nbsp;·&nbsp; À propos &nbsp;·&nbsp; BTS SIO SISR &nbsp;·&nbsp; 2026</span>
     <span class="footer-logo">Miguel<span>.SIO</span></span>
 </footer>
+
+<script>
+// ── IndexedDB — Photo de profil persistante ─────────────────────
+const DB = 'apropos_photo', VR = 1, ST = 'photo';
+let db = null;
+
+function openDB() {
+    return new Promise((res, rej) => {
+        const r = indexedDB.open(DB, VR);
+        r.onupgradeneeded = e => e.target.result.createObjectStore(ST);
+        r.onsuccess = e => { db = e.target.result; res(); };
+        r.onerror = e => rej(e);
+    });
+}
+
+function savePhoto(src) {
+    const tx = db.transaction(ST, 'readwrite');
+    tx.objectStore(ST).put(src, 'profile');
+}
+
+function loadPhoto() {
+    return new Promise(res => {
+        const tx = db.transaction(ST, 'readonly');
+        const req = tx.objectStore(ST).get('profile');
+        req.onsuccess = e => res(e.target.result || null);
+        req.onerror = () => res(null);
+    });
+}
+
+function applyPhoto(src) {
+    const img   = document.getElementById('photoImg');
+    const ph    = document.getElementById('photoPh');
+    const badge = document.getElementById('photoBadge');
+    img.src = src;
+    img.style.display = 'block';
+    ph.style.display  = 'none';
+    badge.style.display = 'block';
+}
+
+function handlePhoto(input) {
+    if (!input.files || !input.files[0]) return;
+    const reader = new FileReader();
+    reader.onload = async e => {
+        const src = e.target.result;
+        savePhoto(src);
+        applyPhoto(src);
+        input.value = '';
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+
+async function init() {
+    try {
+        await openDB();
+        const src = await loadPhoto();
+        if (src) applyPhoto(src);
+    } catch(e) { console.warn('IndexedDB:', e); }
+}
+
+init();
+</script>
 
 </body>
 </html>
